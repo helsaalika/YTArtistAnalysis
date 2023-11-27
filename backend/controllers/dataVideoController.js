@@ -1,5 +1,5 @@
 // videoController.js
-import DataVideo from '../models/data_video.js';
+import DataVideo from "../models/data_video.js";
 
 export const getAllVideos = async (req, res) => {
   try {

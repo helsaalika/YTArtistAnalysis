@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 import routes from './routes/routes.js';
 
 const app = express();
-const port = 3000; // Atur port sesuai kebutuhan Anda
+const port = 5000; // Atur port sesuai kebutuhan Anda
 
 // MongoDB Atlas connection string
 // const mongoURI = 'mongodb+srv://nayarasaffa:marklee99@cluster0.wqe91iw.mongodb.net/test?retryWrites=true&w=majority';

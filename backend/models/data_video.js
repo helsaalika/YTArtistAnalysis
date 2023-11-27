@@ -1,33 +1,47 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
 const videoSchema = new mongoose.Schema({
-  "Video ID": {
+  video_id: {
     type: String,
     required: true,
   },
-  Title: {
+  title: {
     type: String,
     required: true,
   },
-  Description: String,
-  Views: {
+  description: {
+    type: String,
+  },
+  views: {
     type: Number,
     required: true,
   },
-  Likes: {
+  likes: {
     type: Number,
     required: true,
   },
-  Comments: {
+  comments: {
     type: Number,
     required: true,
   },
-  "Upload Date": {
+  upload_date: {
     type: Date,
+    required: true,
+  },
+  engagement: {
+    type: Number,
+    required: true,
+  },
+  cluster_video: {
+    type: Number,
+    required: true,
+  },
+  cluster_video_channel: {
+    type: Number,
     required: true,
   },
 });
 
-const DataVideo = mongoose.model('DataVideo', videoSchema);
+const DataVideo = mongoose.model("DataVideo", videoSchema);
 
 export default DataVideo;

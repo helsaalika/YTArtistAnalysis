@@ -1,31 +1,39 @@
 // artist_channel.js
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
 const videoSchema = new mongoose.Schema({
-  videoId: String,
+  videos: String,
   // tambahkan field lainnya sesuai kebutuhan
 });
 
 const artistChannelSchema = new mongoose.Schema({
-  Channel_name: {
+  channel_name: {
     type: String,
     required: true,
   },
-  Subscriber: {
+  subscriber: {
     type: Number,
     required: true,
   },
-  Views: {
+  views: {
     type: Number,
     required: true,
   },
-  Total_videos: {
+  total_videos: {
     type: Number,
     required: true,
   },
-  Videos: [videoSchema],
+  engagement: {
+    type: Number,
+    required: true,
+  },
+  videos: [videoSchema],
+  cluster_artist: {
+    type: Number,
+    required: true,
+  },
 });
 
-const ArtistChannel = mongoose.model('ArtistChannel', artistChannelSchema);
+const ArtistChannel = mongoose.model("artist_channel", artistChannelSchema);
 
 export default ArtistChannel;

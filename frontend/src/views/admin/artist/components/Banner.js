@@ -32,22 +32,6 @@ export default function Banner() {
         lineHeight={{ base: "16px", md: "24px" }}>
         File Laporan
       </Text>
-      <Text
-        fontSize='md'
-        color='#E3DAFF'
-        maxW={{
-          base: "100%",
-          md: "64%",
-          lg: "40%",
-          xl: "56%",
-          "2xl": "46%",
-          "3xl": "34%",
-        }}
-        fontWeight='500'
-        mb='40px'
-        lineHeight='28px'>
-        File Laporan dalam bentuk excel dari data postingan video youtube beserta data like, comment, share
-      </Text>
       <Flex align='center'>
         <Button
           bg='white'

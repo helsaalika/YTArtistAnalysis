@@ -1,5 +1,5 @@
 // artistController.js
-import ArtistChannel from '../models/artist_channel.js';
+import ArtistChannel from "../models/artist_channel.js";
 
 export const getAllData = async (req, res) => {
   try {

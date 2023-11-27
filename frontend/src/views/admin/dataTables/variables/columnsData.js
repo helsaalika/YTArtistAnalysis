@@ -1,19 +1,23 @@
 export const columnsDataDevelopment = [
   {
-    Header: "NAME",
-    accessor: "name",
+    Header: "CHANNEL NAME",
+    accessor: "channel_name",
   },
   {
-    Header: "TECH",
-    accessor: "tech",
+    Header: "SUBSCRIBER",
+    accessor: "subscriber",
   },
   {
-    Header: "DATE",
-    accessor: "date",
+    Header: "VIEWS",
+    accessor: "views",
   },
   {
-    Header: "PROGRESS",
-    accessor: "progress",
+    Header: "TOTAL VIDEOS",
+    accessor: "total_videos"
+  },
+  {
+    Header: "ENGAGEMENT",
+    accessor: "engagement",
   },
 ];
 
