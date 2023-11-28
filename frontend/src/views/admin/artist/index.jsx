@@ -1,103 +1,45 @@
-import React from "react";
-
-// Chakra imports
-import {
-  Box,
-  Button,
-  Flex,
-  Grid,
-  Link,
-  Text,
-  useColorModeValue,
-  SimpleGrid,
-} from "@chakra-ui/react";
-
-// Custom components
-import TableTopCreators from "views/admin/artist/components/TableTopCreators";
+import React, { useEffect, useState } from "react";
+import { Box, SimpleGrid } from "@chakra-ui/react";
 import NFT from "components/card/NFT";
-import Card from "components/card/Card.js";
+import axios from "axios";
 
-// Assets
 import Nft1 from "assets/img/nfts/Nft1.png";
 import Nft2 from "assets/img/nfts/Nft2.png";
 import Nft3 from "assets/img/nfts/Nft3.png";
-import tableDataTopCreators from "views/admin/artist/variables/tableDataTopCreators.json";
-import { tableColumnsTopCreators } from "views/admin/artist/variables/tableColumnsTopCreators";
+import Nft4 from "assets/img/nfts/Nft1.png";
+import Nft5 from "assets/img/nfts/Nft2.png";
+import Nft6 from "assets/img/nfts/Nft3.png";
+import Nft7 from "assets/img/nfts/Nft1.png";
+import Nft8 from "assets/img/nfts/Nft2.png";
+import Nft9 from "assets/img/nfts/Nft3.png";
+import Nft10 from "assets/img/nfts/Nft3.png";
 
-export default function Artist() {
-  // Chakra Color Mode
-  const textColor = useColorModeValue("secondaryGray.900", "white");
-  const textColorBrand = useColorModeValue("brand.500", "white");
+const Artist = () => {
+  const [channels, setChannels] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get("http://localhost:5000/data");
+        setChannels(response.data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  const nftImages = [Nft1, Nft2, Nft3, Nft4, Nft5, Nft6, Nft7, Nft8, Nft9, Nft10];
   return (
     <Box pt={{ base: "180px", md: "80px", xl: "80px" }}>
-      {/* Main Fields */}
-      <Grid
-        mb="20px"
-        gridTemplateColumns={{ xl: "repeat(3, 1fr)", "2xl": "1fr 0.46fr" }}
-        gap={{ base: "20px", xl: "20px" }}
-        display={{ base: "block", xl: "grid" }}
-      >
-        <Flex
-          flexDirection="column"
-          gridArea={{ xl: "1 / 1 / 2 / 3", "2xl": "1 / 1 / 2 / 2" }}
-        >
-          <Flex direction="column">
-            <SimpleGrid columns={{ base: 1, md: 3 }} gap="20px">
-              <NFT
-                name="NCT DREAM"
-                author="By SM Entertaiment"
-                image={Nft1}
-                download="#"
-              />
-              <NFT name="New Jeans" author="HYBE" image={Nft2} download="#" />
-              <NFT
-                name="Blackpink"
-                author="YG Entertaiment"
-                image={Nft3}
-                download="#"
-              />
-              <NFT
-                name="NCT DREAM"
-                author="By SM Entertaiment"
-                image={Nft1}
-                download="#"
-              />
-              <NFT name="New Jeans" author="HYBE" image={Nft2} download="#" />
-              <NFT
-                name="Blackpink"
-                author="YG Entertaiment"
-                image={Nft3}
-                download="#"
-              />
-              <NFT
-                name="NCT DREAM"
-                author="By SM Entertaiment"
-                image={Nft1}
-                download="#"
-              />
-              <NFT name="New Jeans" author="HYBE" image={Nft2} download="#" />
-              <NFT
-                name="Blackpink"
-                author="YG Entertaiment"
-                image={Nft3}
-                download="#"
-              />
-            </SimpleGrid>
-          </Flex>
-        </Flex>
-        <Flex
-          flexDirection="column"
-          gridArea={{ xl: "1 / 3 / 2 / 4", "2xl": "1 / 2 / 2 / 3" }}
-        >
-          <Card px="0px" mb="20px">
-            <TableTopCreators
-              tableData={tableDataTopCreators}
-              columnsData={tableColumnsTopCreators}
-            />
-          </Card>
-        </Flex>
-      </Grid>
-      {/* Delete Product */}
+      <SimpleGrid columns={{ base: 1, md: 4 }} gap="20px" width="100%">
+        {channels.map((channel, index) => (
+          <NFT key={channel._id} name={channel.channel_name} image={nftImages[index % nftImages.length]} id_channel={channel._id} />
+        ))}
+      </SimpleGrid>
     </Box>
   );
-}
+};
+
+export default Artist;

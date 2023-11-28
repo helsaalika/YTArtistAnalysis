@@ -1,37 +1,27 @@
 // Chakra imports
-import {
-  AvatarGroup,
-  Avatar,
-  Box,
-  Button,
-  Flex,
-  Icon,
-  Image,
-  Link,
-  Text,
-  useColorModeValue,
-} from "@chakra-ui/react";
+import { AvatarGroup, Avatar, Box, Button, Flex, Icon, Image, Link, Text, useColorModeValue } from "@chakra-ui/react";
 // Custom components
 import Card from "components/card/Card.js";
 // Assets
 import React, { useState } from "react";
 import { IoHeart, IoHeartOutline } from "react-icons/io5";
+import { Link as RouterLink } from "react-router-dom";
 
 export default function NFT(props) {
-  const { image, name, author, download, currentbid } = props;
+  const { image, name, author, id_channel } = props;
   const [like, setLike] = useState(false);
   const textColor = useColorModeValue("navy.700", "white");
-  const textColorBid = useColorModeValue("brand.500", "white");
+  const handleRedirect = () => {
+    // Redirect logic using react-router-dom or window.location.href
+    // For example, assuming your route is '/dashboard/:id_channel'
+    window.location.href = `/admin/default/${id_channel}`;
+  };
+
   return (
     <Card p="20px">
-      <Flex direction={{ base: "column" }} justify="center">
+      <Flex direction={{ base: "column" }} justify="center" alignItems="center">
         <Box mb={{ base: "20px", "2xl": "20px" }} position="relative">
-          <Image
-            src={image}
-            w={{ base: "100%", "3xl": "100%" }}
-            h={{ base: "100%", "3xl": "100%" }}
-            borderRadius="20px"
-          />
+          <Image src={image} w={{ base: "100%", "3xl": "100%" }} h={{ base: "100%", "3xl": "100%" }} borderRadius="20px" />
           <Button
             position="absolute"
             bg="white"
@@ -48,87 +38,30 @@ export default function NFT(props) {
               setLike(!like);
             }}
           >
-            <Icon
-              transition="0.2s linear"
-              w="20px"
-              h="20px"
-              as={like ? IoHeart : IoHeartOutline}
-              color="brand.500"
-            />
+            <Icon transition="0.2s linear" w="20px" h="20px" as={like ? IoHeart : IoHeartOutline} color="brand.500" />
           </Button>
         </Box>
-        <Flex flexDirection="column" justify="space-between" h="100%">
-          <Flex
-            justify="space-between"
-            direction={{
-              base: "row",
-              md: "column",
-              lg: "row",
-              xl: "column",
-              "2xl": "row",
+        <Flex flexDirection="column" justify="center" alignItems="center" mt="10px">
+          <Text
+            color={textColor}
+            fontSize={{
+              base: "xl",
+              md: "lg",
+              lg: "lg",
+              xl: "lg",
+              "2xl": "md",
+              "3xl": "lg",
             }}
-            mb="auto"
+            mb="5px"
+            fontWeight="bold"
+            me="14px"
+            textAlign="center" // Center the text
           >
-            <Flex direction="column">
-              <Text
-                color={textColor}
-                fontSize={{
-                  base: "xl",
-                  md: "lg",
-                  lg: "lg",
-                  xl: "lg",
-                  "2xl": "md",
-                  "3xl": "lg",
-                }}
-                mb="5px"
-                fontWeight="bold"
-                me="14px"
-              >
-                {name}
-              </Text>
-              <Text
-                color="secondaryGray.600"
-                fontSize={{
-                  base: "sm",
-                }}
-                fontWeight="400"
-                me="14px"
-              >
-                {author}
-              </Text>
-            </Flex>
-          </Flex>
-          <Flex
-            align="start"
-            justify="space-between"
-            direction={{
-              base: "row",
-              md: "column",
-              lg: "row",
-              xl: "column",
-              "2xl": "row",
-            }}
-            mt="10px"
-          >
-            <Link
-              href={download}
-              mt={{
-                base: "0px",
-                md: "10px",
-                lg: "0px",
-                xl: "10px",
-                "2xl": "0px",
-              }}
-            >
-              <Button
-                variant="darkBrand"
-                color="white"
-                fontSize="sm"
-                fontWeight="500"
-                borderRadius="70px"
-                px="24px"
-                py="5px"
-              >
+            {name}
+          </Text>
+          <Flex align="start" justify="center" mt="10px">
+            <Link href={handleRedirect}>
+              <Button variant="darkBrand" color="white" fontSize="sm" fontWeight="500" borderRadius="70px" px="24px" py="5px">
                 View Detail
               </Button>
             </Link>
