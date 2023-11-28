@@ -9,3 +9,14 @@ export const getAllData = async (req, res) => {
     res.status(500).json({ message: err.message });
   }
 };
+
+export const getArtistById = async (req, res) => {
+  try {
+    const { id } = req.params;
+    // Use the ID to fetch the specific artist from the database
+    const artist = await ArtistChannel.findById(id);
+    res.json(artist);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
