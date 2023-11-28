@@ -1,24 +1,24 @@
 export const columnsDataDevelopment = [
   {
     Header: "CLUSTER",
-    accessor: "cluster_artist",
+    accessor: "cluster_video",
     sortType: "basic",
   },
   {
-    Header: "CHANNEL NAME",
-    accessor: "channel_name",
-  },
-  {
-    Header: "SUBSCRIBER",
-    accessor: "subscriber",
+    Header: "TITLE",
+    accessor: "title",
   },
   {
     Header: "VIEWS",
     accessor: "views",
   },
   {
-    Header: "TOTAL VIDEOS",
-    accessor: "total_videos",
+    Header: "LIKES",
+    accessor: "likes",
+  },
+  {
+    Header: "COMMENTS",
+    accessor: "comments",
   },
   {
     Header: "ENGAGEMENT",
