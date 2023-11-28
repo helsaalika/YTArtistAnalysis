@@ -12,8 +12,6 @@ export default function NFT(props) {
   const [like, setLike] = useState(false);
   const textColor = useColorModeValue("navy.700", "white");
   const handleRedirect = () => {
-    // Redirect logic using react-router-dom or window.location.href
-    // For example, assuming your route is '/dashboard/:id_channel'
     window.location.href = `/admin/default/${id_channel}`;
   };
 
@@ -60,11 +58,9 @@ export default function NFT(props) {
             {name}
           </Text>
           <Flex align="start" justify="center" mt="10px">
-            <Link href={handleRedirect}>
-              <Button variant="darkBrand" color="white" fontSize="sm" fontWeight="500" borderRadius="70px" px="24px" py="5px">
-                View Detail
-              </Button>
-            </Link>
+            <Button variant="darkBrand" color="white" fontSize="sm" fontWeight="500" borderRadius="70px" px="24px" py="5px" onClick={handleRedirect}>
+              View Detail
+            </Button>
           </Flex>
         </Flex>
       </Flex>
