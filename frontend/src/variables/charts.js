@@ -2,8 +2,8 @@
 
 export const barChartDataDailyTraffic = [
   {
-    name: "Daily Traffic",
-    data: [20, 30, 40, 20, 45, 50, 30],
+    name: "Cluster Video",
+    data: [10, 30, 12],
   },
 ];
 
@@ -27,7 +27,7 @@ export const barChartOptionsDailyTraffic = {
     theme: "dark",
   },
   xaxis: {
-    categories: ["00", "04", "08", "12", "14", "16", "18"],
+    categories: ["0", "1", "2"],
     show: false,
     labels: {
       show: true,
@@ -107,16 +107,16 @@ export const barChartOptionsDailyTraffic = {
 
 export const barChartDataConsumption = [
   {
-    name: "PRODUCT A",
-    data: [400, 370, 330, 390, 320, 350, 360, 320, 380],
+    name: "LIKES",
+    data: [121, 162, 54, 46, 123],
   },
   {
-    name: "PRODUCT B",
-    data: [400, 370, 330, 390, 320, 350, 360, 320, 380],
+    name: "COMMENT",
+    data: [80, 70, 50, 90, 100],
   },
   {
-    name: "PRODUCT C",
-    data: [400, 370, 330, 390, 320, 350, 360, 320, 380],
+    name: "VIEWS",
+    data: [130, 100, 200, 123, 99],
   },
 ];
 
@@ -141,7 +141,7 @@ export const barChartOptionsConsumption = {
     theme: "dark",
   },
   xaxis: {
-    categories: ["17", "18", "19", "20", "21", "22", "23", "24", "25"],
+    categories: ["TOP GOOGLE SEARCH ZIVA MAGNOLYA", "Red Flag or Green Flag? 🚩", "TEBAK LAGU HITS DARI EMOJI!", "ARTIST IMPRESSION CHALLENGE", "EKSPECTANICA 2023 | HI-GIGS"],
     show: false,
     labels: {
       show: true,
@@ -209,8 +209,8 @@ export const barChartOptionsConsumption = {
 };
 
 export const pieChartOptions = {
-  labels: ["Your files", "System", "Empty"],
-  colors: ["#4318FF", "#6AD2FF", "#EFF4FB"],
+  labels: ["Total Videos", "Total Views"],
+  colors: ["#4318FF", "#6AD2FF"],
   chart: {
     width: "50px",
   },
@@ -247,7 +247,7 @@ export const pieChartOptions = {
   },
 };
 
-export const pieChartData = [63, 25, 12];
+export const pieChartData = [100, 50];
 
 // Total Spent Default
 
